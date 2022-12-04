@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class GameRules {
@@ -9,7 +10,16 @@ public class GameRules {
     private int[] winOption = {-1,-1,-1};
 
     private Button playAgainBtn;
-    private TextView playTurn;
+    public ImageView image1;
+    public ImageView image2;
+    public ImageView image3;
+    public ImageView image4;
+    public ImageView image5;
+    public ImageView image6;
+    public ImageView image7;
+    public ImageView image8;
+    public ImageView image9;
+    public ImageView image10;
     GameRules() {
         gameBoard = new int[3][3];
         for (int i = 0; i < 3; i++) {
@@ -26,13 +36,50 @@ public class GameRules {
     public boolean updateGameBoard(int row, int col) {
         if (gameBoard[row - 1][col - 1] == 0) {
             gameBoard[row - 1][col - 1] = shape;
+            if(gameBoard[0][0] == 1)
+                image1.setImageResource(R.drawable.x);
+            else if(gameBoard[0][0] == 2)
+                image1.setImageResource(R.drawable.o);
+            if(gameBoard[0][1] == 1)
+                image2.setImageResource(R.drawable.x);
+            else if(gameBoard[0][1] == 2)
+                image2.setImageResource(R.drawable.o);
+            if(gameBoard[0][2] == 1)
+                image3.setImageResource(R.drawable.x);
+            else if(gameBoard[0][2] == 2)
+                image3.setImageResource(R.drawable.o);
+            if(gameBoard[1][0] == 1)
+                image4.setImageResource(R.drawable.x);
+            else if(gameBoard[1][0] == 2)
+                image4.setImageResource(R.drawable.o);
+            if(gameBoard[1][1] == 1)
+                image5.setImageResource(R.drawable.x);
+            else if(gameBoard[1][1] == 2)
+                image5.setImageResource(R.drawable.o);
+            if(gameBoard[1][2] == 1)
+                image6.setImageResource(R.drawable.x);
+            else if(gameBoard[1][2] == 2)
+                image6.setImageResource(R.drawable.o);
+            if(gameBoard[2][0] == 1)
+                image7.setImageResource(R.drawable.x);
+            else if(gameBoard[2][0] == 2)
+                image7.setImageResource(R.drawable.o);
+            if(gameBoard[2][1] == 1)
+                image8.setImageResource(R.drawable.x);
+            else if(gameBoard[2][1] == 2)
+                image8.setImageResource(R.drawable.o);
+            if(gameBoard[2][2] == 1)
+                image9.setImageResource(R.drawable.x);
+            else if(gameBoard[2][2] == 2)
+                image9.setImageResource(R.drawable.o);
             if(shape == 1)
             {
-                playTurn.setText("O Turn");
+                image10.setImageResource(R.drawable.oplay);
             }
             else
             {
-                playTurn.setText("X Turn");
+                image10.setImageResource(R.drawable.xplay);
+
             }
             return true;
         } else {
@@ -80,17 +127,17 @@ public class GameRules {
         {
             playAgainBtn.setEnabled(true);
             if(shape == 1)
-               playTurn.setText("The Winner is X!!!");
+                image10.setImageResource(R.drawable.xwin);
             else
-                playTurn.setText("The Winner is O!!!");
+                image10.setImageResource(R.drawable.owin);
             return true;
 
         }
         else if(fullBoard == 9)
         {
             playAgainBtn.setEnabled(true);
-            playTurn.setText("There is no Winner!!!");
-            return true;
+            image10.setImageResource(R.drawable.nowin);
+            return false;
         }
         else
             return false;
@@ -103,7 +150,17 @@ public class GameRules {
                 gameBoard[i][j] = 0;
             }
         }
-        playTurn.setText("X Turn");
+        image1.setImageResource(0);
+        image2.setImageResource(0);
+        image3.setImageResource(0);
+        image4.setImageResource(0);
+        image5.setImageResource(0);
+        image6.setImageResource(0);
+        image7.setImageResource(0);
+        image8.setImageResource(0);
+        image9.setImageResource(0);
+
+        image10.setImageResource(R.drawable.xplay);
         shape = 1;
         playAgainBtn.setEnabled(false);
     }
@@ -120,8 +177,41 @@ public class GameRules {
     public int[] getWinOption() {
         return winOption;
     }
+    public void setImage1(ImageView image1) {
+        this.image1 = image1;
+    }
+    public void setImage2(ImageView image2) {
+        this.image2 = image2;
+    }
 
-    public void setPlayTurn(TextView playTurn) {
-        this.playTurn = playTurn;
+
+    public void setImage3(ImageView image3) {
+        this.image3 = image3;
+    }
+
+    public void setImage4(ImageView image4) {
+        this.image4 = image4;
+    }
+    public void setImage5(ImageView image5) {
+        this.image5 = image5;
+    }
+    public void setImage6(ImageView image6) {
+        this.image6 = image6;
+    }
+
+    public void setImage7(ImageView image7) {
+        this.image7 = image7;
+    }
+
+    public void setImage8(ImageView image8) {
+        this.image8 = image8;
+    }
+
+    public void setImage9(ImageView image9) {
+        this.image9 = image9;
+    }
+
+    public void setImage10(ImageView image10) {
+        this.image10 = image10;
     }
 }

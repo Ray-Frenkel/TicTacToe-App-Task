@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
@@ -67,10 +67,11 @@ public class TicTacToeBoard extends View {
             for(int j=0; j < 3; j++){
                if(game.getGameBoard()[i][j] != 0)
                {
-                   if(game.getGameBoard()[i][j] == 1)
-                       drawX(canvas, i,j);
-                   else
-                       drawO(canvas, i, j);
+                   //if(game.getGameBoard()[i][j] == 1)
+                       //drawX(canvas, i,j);
+                       //game.image1.setImageResource(R.drawable.x);
+                   //else
+                       //drawO(canvas, i, j);
                }
             }
         }
@@ -119,6 +120,7 @@ public class TicTacToeBoard extends View {
             canvas.drawLine(0,cell*j,canvas.getWidth(),cell*j,paint);
         }
     }
+    /*
     private void drawO(Canvas canvas, int row, int col){
         paint.setColor(OColor);
         canvas.drawOval((float) (col*cell+cell*0.2),(float)(row*cell+cell*0.2),(float)((col*cell+cell)-cell*0.2),(float) ((row*cell + cell)-cell*0.2),paint);
@@ -129,6 +131,7 @@ public class TicTacToeBoard extends View {
         canvas.drawLine((float)((col+1)*cell-cell*0.2),(float) (row*cell+cell*0.2),(float) (col*cell+cell*0.2),(float)((row+1)*cell-cell*0.2),paint);
         canvas.drawLine((float)((col)*cell+cell*0.2),(float)(row*cell+cell*0.2),(float)((col+1)*cell-cell*0.2),(float) ((row+1)*cell-cell*0.2),paint);
     }
+     */
     private void drawHorizontalLine(Canvas canvas, int row, int col){
         canvas.drawLine(col,row*cell + cell/2, cell*3, row*cell+cell/2,paint);
     }
@@ -152,7 +155,7 @@ public class TicTacToeBoard extends View {
             drawVerticalLine(canvas,row,col);
         else if(game.getWinOption()[2]==3)
             drawDiagonalLineNeg(canvas);
-        else
+        else if(game.getWinOption()[2]==4)
             drawDiagonalLinePos(canvas);
     }
     public void ClearGame()
@@ -160,8 +163,17 @@ public class TicTacToeBoard extends View {
         game.ClearGame();
         winning = false;
     }
-    public void setGame(Button playAgain, TextView playerDisplay){
+    public void setGame(Button playAgain, ImageView playerDisplay, ImageView image1, ImageView image2, ImageView image3, ImageView image4, ImageView image5, ImageView image6, ImageView image7, ImageView image8, ImageView image9){
         game.setPlayAgainBtn(playAgain);
-        game.setPlayTurn(playerDisplay);
+        game.setImage1(image1);
+        game.setImage2(image2);
+        game.setImage3(image3);
+        game.setImage4(image4);
+        game.setImage5(image5);
+        game.setImage6(image6);
+        game.setImage7(image7);
+        game.setImage8(image8);
+        game.setImage9(image9);
+        game.setImage10(playerDisplay);
     }
 }
