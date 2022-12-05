@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.media.Image;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +21,17 @@ public class GameRules {
     public ImageView image8;
     public ImageView image9;
     public ImageView image10;
+    public ImageView imageWin1;
+    public ImageView imageWin2;
+    public ImageView imageWin3;
+    public ImageView imageWin4;
+    public ImageView imageWin5;
+    public ImageView imageWin6;
+    public ImageView imageWin7;
+
+
+
+    public ImageView imageWin8;
     GameRules() {
         gameBoard = new int[3][3];
         for (int i = 0; i < 3; i++) {
@@ -93,7 +105,12 @@ public class GameRules {
         {
             if(gameBoard[i][0] == gameBoard[i][1] && gameBoard[i][0] == gameBoard[i][2] && gameBoard[i][0] != 0) {
                 winner = true;
-                winOption = new int[] {i,0,1};
+               if(i == 0)
+                   imageWin3.setImageResource(R.drawable.mark4);
+               else if(i==1)
+                   imageWin4.setImageResource(R.drawable.mark4);
+               else if(i==2)
+                   imageWin5.setImageResource(R.drawable.mark4);
             }
 
         }
@@ -101,17 +118,24 @@ public class GameRules {
         {
             if(gameBoard[0][j] == gameBoard[1][j] && gameBoard[0][j] == gameBoard[2][j] && gameBoard[0][j] != 0) {
                 winner = true;
-                winOption = new int[] {0,j,2};
+                if(j == 0)
+                    imageWin6.setImageResource(R.drawable.mark3);
+                else if(j==1)
+                    imageWin7.setImageResource(R.drawable.mark5);
+                else if(j==2)
+                    imageWin8.setImageResource(R.drawable.mark5);
             }
+
         }
         if(gameBoard[0][0] == gameBoard[1][1] && gameBoard[0][0] == gameBoard[2][2] && gameBoard[0][0] != 0) {
             winner = true;
-            winOption = new int[] {0,2,3};
+            imageWin1.setImageResource(R.drawable.mark1);
+
         }
 
         if(gameBoard[2][0] == gameBoard[1][1] && gameBoard[2][0] == gameBoard[0][2] && gameBoard[2][0] != 0) {
             winner = true;
-            winOption = new int[] {2,2,4};
+            imageWin2.setImageResource(R.drawable.mark2);
         }
 
         int fullBoard = 0;
@@ -159,8 +183,15 @@ public class GameRules {
         image7.setImageResource(0);
         image8.setImageResource(0);
         image9.setImageResource(0);
-
         image10.setImageResource(R.drawable.xplay);
+        imageWin1.setImageResource(0);
+        imageWin2.setImageResource(0);
+        imageWin3.setImageResource(0);
+        imageWin4.setImageResource(0);
+        imageWin5.setImageResource(0);
+        imageWin6.setImageResource(0);
+        imageWin7.setImageResource(0);
+        imageWin8.setImageResource(0);
         shape = 1;
         playAgainBtn.setEnabled(false);
     }
@@ -213,5 +244,35 @@ public class GameRules {
 
     public void setImage10(ImageView image10) {
         this.image10 = image10;
+    }
+
+    public void setImageWin1(ImageView imageWin1) {
+        this.imageWin1 = imageWin1;
+    }
+    public void setImageWin2(ImageView imageWin2) {
+        this.imageWin2 = imageWin2;
+    }
+
+    public void setImageWin3(ImageView imageWin3) {
+        this.imageWin3 = imageWin3;
+    }
+
+    public void setImageWin4(ImageView imageWin4) {
+        this.imageWin4 = imageWin4;
+    }
+
+    public void setImageWin5(ImageView imageWin5) {
+        this.imageWin5 = imageWin5;
+    }
+
+    public void setImageWin6(ImageView imageWin6) {
+        this.imageWin6 = imageWin6;
+    }
+
+    public void setImageWin7(ImageView imageWin7) {
+        this.imageWin7 = imageWin7;
+    }
+    public void setImageWin8(ImageView imageWin8) {
+        this.imageWin8 = imageWin8;
     }
 }

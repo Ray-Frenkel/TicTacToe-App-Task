@@ -163,7 +163,7 @@ public class TicTacToeBoard extends View {
         game.ClearGame();
         winning = false;
     }
-    public void setGame(Button playAgain, ImageView playerDisplay, ImageView image1, ImageView image2, ImageView image3, ImageView image4, ImageView image5, ImageView image6, ImageView image7, ImageView image8, ImageView image9){
+    public void setGame(Button playAgain, ImageView playerDisplay, ImageView image1, ImageView image2, ImageView image3, ImageView image4, ImageView image5, ImageView image6, ImageView image7, ImageView image8, ImageView image9, ImageView imageWin1, ImageView imageWin2, ImageView imageWin3, ImageView imageWin4, ImageView imageWin5,ImageView imageWin6,ImageView imageWin7,ImageView imageWin8){
         game.setPlayAgainBtn(playAgain);
         game.setImage1(image1);
         game.setImage2(image2);
@@ -175,5 +175,14 @@ public class TicTacToeBoard extends View {
         game.setImage8(image8);
         game.setImage9(image9);
         game.setImage10(playerDisplay);
+        game.setImageWin1(imageWin1);
+        game.setImageWin2(imageWin2);
+        game.setImageWin3(imageWin3);
+        game.setImageWin4(imageWin4);
+        game.setImageWin5(imageWin5);
+        game.setImageWin6(imageWin6);
+        game.setImageWin7(imageWin7);
+        game.setImageWin8(imageWin8);
+
     }
 }
